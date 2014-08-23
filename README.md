@@ -15,7 +15,14 @@ It includes a basic front-end for interacting with the service.<br>
 4. Unicorn & Heroku for deployment<br>
 5. Typhoeus and JSON for API interactions (If you want something else, you can just remove these from the Gemfile. It shouldn't cause any problems.)<br>
 6. (Optional) Devise admin interface<br>
+7. RSpec and FactoryGirl
 <br>
+
+<strong> Getting started</strong><br>
+1. Create the app: rails new my_app -m https://github.com/bfla/rails-service-template/rails-service-template.rb
+2. Go to your Gemfile and move sqlite3 into the development/test group
+3. 
+
 <strong>Views</strong><br>
 1. Application.html.slim: Assumes a normal but minimalist webpage layout with a navbar and footer. <br>
 2. Partials that I practically always use in layouts: navbar, headscripts, headstyles, bottomScripts. <br>
@@ -41,7 +48,21 @@ content_for :body_class, "scaffold"<br>
 When you run the template, it will ask if you want an admin template included.  If you say yes, it will do some stuff:<br>
 1. Include devise in the Gemfile<br>
 2. Create an Admin scaffold<br>
-3. Attach devise to the admin model<br>
+3. Attach devise to the admin model and run rake db:migrate<br>
 4. Create a devise route for :admins <br>
 5. Scope the devise route so that you can access it at this path: example.com/sign_in
 6. Include my customized devise views
+
+<strong> Testing </strong><br>
+1. RSpec: will be installed and setup to use FactoryGirl<br>
+2. FactoryGirl: will be installed and factories.rb file will be created.<br>
+
+<strong> Deployment</strong><br>
+1. Heroku <br>
+2. Postgres <br>
+2. Unicorn (Procfile and unicorn.rb)<br>
+3. To deploy: ...<br>
+
+<strong> Version control</strong><br>
+1. When you run the template, the initial project will be added to git version control and committed<br>
+2. .gitignore now ignores .DS_Store, .env, and /images/system <br>
